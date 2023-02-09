@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for the Signetik IoT API"
         >
-    <title>API Reference</title>
+    <title>Signetik IoT API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -304,12 +304,6 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo-5830b037.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -317,21 +311,312 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#led" class="toc-h1 toc-link" data-title="LED">LED</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#set-led" class="toc-h2 toc-link" data-title="Set LED">Set LED</a>
+                    <a href="#changes-and-additions" class="toc-h2 toc-link" data-title="Changes and Additions">Changes and Additions</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#terminology" class="toc-h2 toc-link" data-title="Terminology">Terminology</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#modes-of-operation" class="toc-h2 toc-link" data-title="Modes of Operation">Modes of Operation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#general" class="toc-h1 toc-link" data-title="General">General</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#command-structure" class="toc-h2 toc-link" data-title="Command Structure">Command Structure</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#convention" class="toc-h1 toc-link" data-title="Convention">Convention</a>
+          </li>
+          <li>
+            <a href="#error-codes" class="toc-h1 toc-link" data-title="Error Codes">Error Codes</a>
+          </li>
+          <li>
+            <a href="#commands" class="toc-h1 toc-link" data-title="Commands">Commands</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#set" class="toc-h2 toc-link" data-title="Set">Set</a>
+                  </li>
+                  <li>
+                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                  </li>
+                  <li>
+                    <a href="#push" class="toc-h2 toc-link" data-title="Push">Push</a>
+                  </li>
+                  <li>
+                    <a href="#pull" class="toc-h2 toc-link" data-title="Pull">Pull</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#configuration" class="toc-h1 toc-link" data-title="Configuration">Configuration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#devid_gen" class="toc-h2 toc-link" data-title="devid_gen">devid_gen</a>
+                  </li>
+                  <li>
+                    <a href="#server_address" class="toc-h2 toc-link" data-title="server_address">server_address</a>
+                  </li>
+                  <li>
+                    <a href="#server_port" class="toc-h2 toc-link" data-title="server_port">server_port</a>
+                  </li>
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="user">user</a>
+                  </li>
+                  <li>
+                    <a href="#pw" class="toc-h2 toc-link" data-title="pw">pw</a>
+                  </li>
+                  <li>
+                    <a href="#connretry" class="toc-h2 toc-link" data-title="connretry">connretry</a>
+                  </li>
+                  <li>
+                    <a href="#uart_echo" class="toc-h2 toc-link" data-title="uart_echo">uart_echo</a>
+                  </li>
+                  <li>
+                    <a href="#tls" class="toc-h2 toc-link" data-title="tls">tls</a>
+                  </li>
+                  <li>
+                    <a href="#proto" class="toc-h2 toc-link" data-title="proto">proto</a>
+                  </li>
+                  <li>
+                    <a href="#cacert" class="toc-h2 toc-link" data-title="cacert">cacert</a>
+                  </li>
+                  <li>
+                    <a href="#privcert" class="toc-h2 toc-link" data-title="privcert">privcert</a>
+                  </li>
+                  <li>
+                    <a href="#privkey" class="toc-h2 toc-link" data-title="privkey">privkey</a>
+                  </li>
+                  <li>
+                    <a href="#sectag" class="toc-h2 toc-link" data-title="sectag">sectag</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#status" class="toc-h1 toc-link" data-title="Status">Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#firmware" class="toc-h2 toc-link" data-title="firmware">firmware</a>
+                  </li>
+                  <li>
+                    <a href="#battery" class="toc-h2 toc-link" data-title="battery">battery</a>
+                  </li>
+                  <li>
+                    <a href="#connected" class="toc-h2 toc-link" data-title="connected">connected</a>
+                  </li>
+                  <li>
+                    <a href="#queue_mark-tbi" class="toc-h2 toc-link" data-title="queue_mark (TBI)">queue_mark (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#push_mark-tbi" class="toc-h2 toc-link" data-title="push_mark (TBI)">push_mark (TBI)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#control" class="toc-h1 toc-link" data-title="Control">Control</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#save" class="toc-h2 toc-link" data-title="save">save</a>
+                  </li>
+                  <li>
+                    <a href="#led" class="toc-h2 toc-link" data-title="led">led</a>
+                  </li>
+                  <li>
+                    <a href="#leds" class="toc-h2 toc-link" data-title="leds">leds</a>
+                  </li>
+                  <li>
+                    <a href="#led_control-tbi" class="toc-h2 toc-link" data-title="led_control (TBI)">led_control (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_red-tbi" class="toc-h2 toc-link" data-title="led_red (TBI)">led_red (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_green-tbi" class="toc-h2 toc-link" data-title="led_green (TBI)">led_green (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_blue-tbi" class="toc-h2 toc-link" data-title="led_blue (TBI)">led_blue (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_count-tbi" class="toc-h2 toc-link" data-title="led_blink_count (TBI)">led_blink_count (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_offtime-tbi" class="toc-h2 toc-link" data-title="led_blink_offtime (TBI)">led_blink_offtime (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_start-tbi" class="toc-h2 toc-link" data-title="led_blink_start (TBI)">led_blink_start (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#push_interval-tbi" class="toc-h2 toc-link" data-title="push_interval (TBI)">push_interval (TBI)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#notifications" class="toc-h1 toc-link" data-title="Notifications">Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#startup-notification" class="toc-h2 toc-link" data-title="Startup Notification">Startup Notification</a>
+                  </li>
+                  <li>
+                    <a href="#server-connection" class="toc-h2 toc-link" data-title="Server Connection">Server Connection</a>
+                  </li>
+                  <li>
+                    <a href="#push-to-server" class="toc-h2 toc-link" data-title="Push to Server">Push to Server</a>
+                  </li>
+                  <li>
+                    <a href="#server-response-mqtt" class="toc-h2 toc-link" data-title="Server Response (MQTT)">Server Response (MQTT)</a>
+                  </li>
+                  <li>
+                    <a href="#downlink-message-lora" class="toc-h2 toc-link" data-title="Downlink Message (LoRa)">Downlink Message (LoRa)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fota-dfu" class="toc-h1 toc-link" data-title="FOTA / DFU">FOTA / DFU</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#fotahost" class="toc-h2 toc-link" data-title="fotahost">fotahost</a>
+                  </li>
+                  <li>
+                    <a href="#fotahostname" class="toc-h2 toc-link" data-title="fotahostname">fotahostname</a>
+                  </li>
+                  <li>
+                    <a href="#fotafile" class="toc-h2 toc-link" data-title="fotafile">fotafile</a>
+                  </li>
+                  <li>
+                    <a href="#fotasubfile" class="toc-h2 toc-link" data-title="fotasubfile">fotasubfile</a>
+                  </li>
+                  <li>
+                    <a href="#fotastart" class="toc-h2 toc-link" data-title="fotastart">fotastart</a>
+                  </li>
+                  <li>
+                    <a href="#fotasubstart" class="toc-h2 toc-link" data-title="fotasubstart">fotasubstart</a>
+                  </li>
+                  <li>
+                    <a href="#fotastate" class="toc-h2 toc-link" data-title="fotastate">fotastate</a>
+                  </li>
+                  <li>
+                    <a href="#fotasubstate" class="toc-h2 toc-link" data-title="fotasubstate">fotasubstate</a>
+                  </li>
+                  <li>
+                    <a href="#dlcount" class="toc-h2 toc-link" data-title="dlcount">dlcount</a>
+                  </li>
+                  <li>
+                    <a href="#dlchunks" class="toc-h2 toc-link" data-title="dlchunks">dlchunks</a>
+                  </li>
+                  <li>
+                    <a href="#dlretcount" class="toc-h2 toc-link" data-title="dlretcount">dlretcount</a>
+                  </li>
+                  <li>
+                    <a href="#dlretries" class="toc-h2 toc-link" data-title="dlretries">dlretries</a>
+                  </li>
+                  <li>
+                    <a href="#dloffset" class="toc-h2 toc-link" data-title="dloffset">dloffset</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#connections" class="toc-h1 toc-link" data-title="Connections">Connections</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#udp" class="toc-h2 toc-link" data-title="UDP">UDP</a>
+                  </li>
+                  <li>
+                    <a href="#tcp" class="toc-h2 toc-link" data-title="TCP">TCP</a>
+                  </li>
+                  <li>
+                    <a href="#http" class="toc-h2 toc-link" data-title="HTTP">HTTP</a>
+                  </li>
+                  <li>
+                    <a href="#ssl-tls" class="toc-h2 toc-link" data-title="SSL/TLS">SSL/TLS</a>
+                  </li>
+                  <li>
+                    <a href="#mqtt" class="toc-h2 toc-link" data-title="MQTT">MQTT</a>
+                  </li>
+                  <li>
+                    <a href="#http-rest" class="toc-h2 toc-link" data-title="HTTP REST">HTTP REST</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sigcell" class="toc-h1 toc-link" data-title="SigCell">SigCell</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#nbiot" class="toc-h2 toc-link" data-title="nbiot">nbiot</a>
+                  </li>
+                  <li>
+                    <a href="#mfirmware" class="toc-h2 toc-link" data-title="mfirmware">mfirmware</a>
+                  </li>
+                  <li>
+                    <a href="#cell_rsrp" class="toc-h2 toc-link" data-title="cell_rsrp">cell_rsrp</a>
+                  </li>
+                  <li>
+                    <a href="#cell_connected-tbi" class="toc-h2 toc-link" data-title="cell_connected (TBI)">cell_connected (TBI)</a>
+                  </li>
+                  <li>
+                    <a href="#imei" class="toc-h2 toc-link" data-title="imei">imei</a>
+                  </li>
+                  <li>
+                    <a href="#imsi" class="toc-h2 toc-link" data-title="imsi">imsi</a>
+                  </li>
+                  <li>
+                    <a href="#iccid" class="toc-h2 toc-link" data-title="iccid">iccid</a>
+                  </li>
+                  <li>
+                    <a href="#time" class="toc-h2 toc-link" data-title="time">time</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sigfi" class="toc-h1 toc-link" data-title="SigFi">SigFi</a>
+          </li>
+          <li>
+            <a href="#siglrn" class="toc-h1 toc-link" data-title="SigLRN">SigLRN</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#auth" class="toc-h2 toc-link" data-title="auth">auth</a>
+                  </li>
+                  <li>
+                    <a href="#appeui-otaa" class="toc-h2 toc-link" data-title="appeui (OTAA)">appeui (OTAA)</a>
+                  </li>
+                  <li>
+                    <a href="#deveui-otaa-abp" class="toc-h2 toc-link" data-title="deveui (OTAA/ABP)">deveui (OTAA/ABP)</a>
+                  </li>
+                  <li>
+                    <a href="#devaddr-abp" class="toc-h2 toc-link" data-title="devaddr (ABP)">devaddr (ABP)</a>
+                  </li>
+                  <li>
+                    <a href="#appkey-otaa" class="toc-h2 toc-link" data-title="appkey (OTAA)">appkey (OTAA)</a>
+                  </li>
+                  <li>
+                    <a href="#nwkskey-abp" class="toc-h2 toc-link" data-title="nwkskey (ABP)">nwkskey (ABP)</a>
+                  </li>
+                  <li>
+                    <a href="#appskey-abp" class="toc-h2 toc-link" data-title="appskey (ABP)">appskey (ABP)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sigble" class="toc-h1 toc-link" data-title="SigBLE">SigBLE</a>
+          </li>
+          <li>
+            <a href="#gps" class="toc-h1 toc-link" data-title="GPS">GPS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#gpsenable" class="toc-h2 toc-link" data-title="gpsenable">gpsenable</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#future-api" class="toc-h1 toc-link" data-title="Future API">Future API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#gps-2" class="toc-h2 toc-link" data-title="GPS">GPS</a>
                   </li>
               </ul>
           </li>
@@ -340,7 +625,6 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -348,42 +632,263 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>This document describes the API used by Signetik&#39;s wireless products. This document is subject to change and is versioned. Software releases of Signetik&#39;s IoT products refer to which version of the API is implemented.</p>
+<h2 id='changes-and-additions'>Changes and Additions</h2>
+<p>Signetik&#39;s APIs are complex and powerful. Signetik is always expanding and improving these modes and working with customers to add the features they need, within their schedule. If a feature is not applicable to Signetik&#39;s vision, then we work with customers on custom modifications by them or Signetik.</p>
+<h2 id='terminology'>Terminology</h2>
+<p>TBI: To Be Implemented</p>
+<h2 id='modes-of-operation'>Modes of Operation</h2>
+<p>Signetik&#39;s wireless modules support Sensor Master mode, Sensor Slave mode, and Modem modes. A short introduction to each mode follows.</p>
+<h3 id='sensor-master-mode'>Sensor Master Mode</h3>
+<p>This mode allows the developer to connect sensor chips, such as I2C chips, to Signetik products, either as a prototype by wiring into one of the SigSense add-ons, or by creating a custom SigSense add-on board to put various sensor or control circuitry, onto a PCB.
+Sensor interface configuration is provided by modifying Signetik&#39;s core application software.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Signetik&#39;s module pins are automatically configured using the Zephyr board definition. In Master Mode, UART0 is reserved for console input/output and UART1 is reserved for direct modem interaction.</p>
+<h3 id='sensor-slave-mode'>Sensor Slave Mode</h3>
+<p>This mode allows the developer to easily add Signetik products to an existing system, without having to manage the low-level reporting and connectivity. By sending simple ASCII “reports” to Signetik products, along with some configuration details, the system can offload sensor data and allow the device to manage the reporting. This document focus on the API for Sensor Slave Mode.</p>
+<h3 id='modem-modes'>Modem Modes</h3>
+<p>Modem modes are focused on pass-through use of the modems with some enhancements provided by Signetik.</p>
+<h1 id='general'>General</h1><h2 id='command-structure'>Command Structure</h2><h3 id='format'>Format</h3><div class="highlight"><pre class="highlight plaintext"><code>+set,min_connection_delay:15,max_connection_delay:60\r\n
++rsp,ok\r\n
+</code></pre></div>
+<p>All commands start with &quot;+&quot; and end with &quot;\r&quot; and/or &quot;\n&quot;. . If these characters are to be sent within the message, they should be escaped with the backslash &quot;\&quot; in the form of &quot;+&quot; and &quot;\&quot;.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<aside class="success">
+NOTE: when SigCell receives either "\r" or "\n", the command is immediately processed. Furthermore "\r" and "\n" characters are ignored until a non "\r"/"\n" character is received.
+</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Commands are of the form:  <cmd>,<arg> where <arg> is one or more key value pairs of the form <key>:<value> and multiple pairs are separated by the comma.
+All commands and responses must contain less than 1024 characters, including the starting &quot;+&quot; and the final &quot;\r&quot; or &quot;\n&quot; sequence.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<p><code>+&lt;cmd&gt;\r\n</code></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<p>Responses are of the form: <rsp>,<result> where <rsp> is the string &quot;rsp&quot; and <result> is context dependent.</p>
+<h3 id='format-2'>Format</h3>
+<p><code>
++&lt;rsp&gt;\r\n</code></p>
+<h1 id='convention'>Convention</h1>
+<p>In the following API descriptions, the following characters are used:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Character</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><code>&lt;x&gt;</code></td>
+<td>An item &quot;x&quot; which is further described.</td>
+</tr>
+<tr>
+<td style="text-align: center"><code>[x]</code></td>
+<td>An optional sequence &quot;x&quot;</td>
+</tr>
+<tr>
+<td style="text-align: center"><code>*</code></td>
+<td>Signifies the previous sequence can be repeated 0 to many times.</td>
+</tr>
+</tbody></table>
+<h1 id='error-codes'>Error Codes</h1>
+<table><thead>
+<tr>
+<th style="text-align: center">Error</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">1</td>
+<td>invalid parameter value</td>
+</tr>
+<tr>
+<td style="text-align: center">2</td>
+<td>invalid parameter name</td>
+</tr>
+<tr>
+<td style="text-align: center">3</td>
+<td>push queue is full</td>
+</tr>
+<tr>
+<td style="text-align: center">4</td>
+<td>invalid access (read/write)</td>
+</tr>
+<tr>
+<td style="text-align: center">5</td>
+<td>invalid report</td>
+</tr>
+</tbody></table>
+<h1 id='commands'>Commands</h1><h2 id='set'>Set</h2><div class="highlight"><pre class="highlight plaintext"><code>+set,min_connection_delay:15,max_connection_delay:60\r\n
++rsp,min_connection_delay:15,max_connection_delay:60\r\n
++set,min_connection_delay:150000,max_connection_delay:60\r\n
++rsp,min_connection_delay:!1,max_connection_delay:60\r\n
+</code></pre></div>
+<p>The set command allows one or more parameters to be set.</p>
+<h3 id='command'>Command</h3>
+<p><code>+set,&lt;key&gt;:&lt;value&gt;[,&lt;key&gt;:&lt;value&gt;]*\r\n</code></p>
+<h3 id='response'>Response</h3><h4 id='success'>Success</h4>
+<p><code>+rsp,&lt;key&gt;:&lt;result&gt;[,&lt;key&gt;:&lt;result&gt;]*\r\n</code></p>
+
+<p>where <result> is the newly set value for parameter <key>.</p>
+<h4 id='failure'>Failure</h4>
+<p><code>+rsp,&lt;key&gt;:!&lt;result&gt;[,&lt;key&gt;:!&lt;result&gt;]*\r\n</code></p>
+
+<p>where <result> is the error code for failing to set parameter <key>.</p>
+
+<aside class="success">
+NOTE: Some keys may return success and some may return an error, within one command. If one command sets multiple parameters, the operation will continue with setting others parameters even if setting a parameter fails.
+</aside>
+<h2 id='get'>Get</h2><div class="highlight"><pre class="highlight plaintext"><code>+get,min_connection_delay,max_connection_delay\r\n
++rsp,min_connection_delay:15,max_connection_delay:60\r\n
++get,min_connection_dela,max_connection_delay\r\n
++rsp,min_connection_dela:!2,max_connection_delay:60\r\n
+</code></pre></div>
+<p>The get command allows the retrieval of one or more parameters.</p>
+<h3 id='command-2'>Command</h3>
+<p><code>+get,&lt;key&gt;[,&lt;key&gt;]*\r\n</code></p>
+<h3 id='response-2'>Response</h3><h4 id='success-2'>Success</h4>
+<p><code>+rsp,&lt;key&gt;:&lt;result&gt;[,&lt;key&gt;:&lt;result&gt;]*\r\n</code>
+where <result> is the current value for each key.</p>
+<h4 id='failure-2'>Failure</h4>
+<p><code>+rsp,&lt;key&gt;:!&lt;result&gt;[,&lt;key&gt;:!&lt;result&gt;]*\r\n</code>
+where <result> is the error code for each key.</p>
+
+<aside class="success">
+NOTE: Some keys may return success and some may return an error, within one command.
+</aside>
+<h2 id='push'>Push</h2><div class="highlight"><pre class="highlight plaintext"><code>+set,queue1:THA
++push,THA,temp:25,humid:55,Ax:1,Ay:2,Az:3\r\n
++rsp,result:0,mark:37\r\n
++push,THA1,temp:25,humid:55,Ax:1,Ay:2,Az:3\r\n
++rsp,result:2\r\n
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>NOTE: Push command failed due to a typo in report_name leading to not matching with any of the configured report_name</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>The push command allows sensor data to be pushed to the server-faced outgoing queue.</p>
+<h3 id='command-3'>Command</h3>
+<p><code>+set,queue1:&lt;queue name&gt;</code>
+<code>+push,&lt;queue name&gt;,&lt;key&gt;:&lt;value&gt;[,&lt;key&gt;:&lt;value&gt;]*\r\n</code></p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>For protocol &quot;coap&quot;, the queue name must be pre-configured using SigNet webUI/API or via &quot;+set&quot; commands so that it can be matched up to the proper report type. Furthermore, the key/value pairs must match the report key/value pairs, previously configured at the SigNet.
+Pushed data will be ignored/dropped by SigNet if <queue name> does not match one of the configured report types.
+Pushed data will be ignored/dropped by SigNet if all the <key> names and values are not present and/or the corresponding <value> is not of the configured data type.
+The <key>:<value> pairs can be present in any order.
+For protocols that do not send key/value pairs, such as LoRaWAN (lora), the payload is sent using a single key/value where the key is &quot;base64&quot; and the value is base64 encoded data.</p>
+<h3 id='response-3'>Response</h3><h4 id='success-3'>Success</h4>
+<p><code>+rsp,result:&lt;result&gt;,mark:&lt;id&gt;\r\n</code></p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>where
+<result> is 0 on success and non-zero on error
+<id> is the unique id of the report being sent</p>
+<h4 id='failure-3'>Failure</h4>
+<p><code>+rsp,result:&lt;result&gt;\r\n</code></p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<p>where <result> is the error code for the push operation.</p>
+
+<aside class="success">
+NOTE: a success in the push command simply means the data was queued for sending. The mark value is used to check on the status of the push. See "push_mark" in the section Keys below.
 </aside>
-<h1 id='led'>LED</h1><h2 id='set-led'>Set LED</h2><div class="highlight"><pre class="highlight plaintext"><code>+set,led:&lt;example goes here&gt;
+
+<aside class="success">
+NOTE: various "notify" messages will be sent as the message works its way through the system, to the recipient.
+</aside>
+
+<aside class="success">
+NOTE: push commands are put into a queue to be sent out at a later time. The push command will return an error if the queue is full
+</aside>
+<h2 id='pull'>Pull</h2><div class="highlight"><pre class="highlight plaintext"><code>+notify,command:relay_command,enable:1\r\n
+</code></pre></div>
+<p>SigCell will asynchronously write to the terminal any received data or messages, as they come in. These will not interrupt command processing but may interrupt the serial visual display if operating manually with echo enabled.
+Asynchronous receive commands contain the necessary information to allow decoding and processing.</p>
+<h3 id='command-4'>Command</h3>
+<p>None</p>
+<h3 id='response-4'>Response</h3>
+<p><code>+notify,command:&lt;command name&gt;,&lt;key&gt;:&lt;value&gt;[,&lt;key&gt;:&lt;value&gt;]*\r\n</code></p>
+
+<p>where <command> is the command name being sent from the server, key is the name of the various keys being sent, and value is the value of the corresponding key..</p>
+<h1 id='configuration'>Configuration</h1><h2 id='devid_gen'>devid_gen</h2>
+<p>Read-only. The unique 64-bit device ID for this device. This can be used to set devid below.
+devid
+The unique 64-bit device ID for this device. This should be set by the user.</p>
+<h2 id='server_address'>server_address</h2>
+<p>The server IP address or DNS name to connect to. This key is not supported for SigLR or SigBLE.
+default: iot.signetik.com</p>
+<h2 id='server_port'>server_port</h2>
+<p>The server port to connect to. This key is not supported for SigLR or SigBLE
+range: 1 to 65535
+default: 5715</p>
+<h2 id='user'>user</h2>
+<p>Allows setting of the user for protocols requiring login
+Range: String
+Default: Empty</p>
+<h2 id='pw'>pw</h2>
+<p>Allows setting of the password for protocols requiring login
+Range: String
+Default: Empty</p>
+<h2 id='connretry'>connretry</h2>
+<p>This key allows for setting the time in seconds between retries in connecting to the network.
+range: 15 to 3600
+default: 300</p>
+<h2 id='uart_echo'>uart_echo</h2>
+<p>The received UART characters are typically echoed back to the terminal, as they are received. Furthermore, when an asynchronous event is received the current command buffer is re-echoed back to the terminal to allow for easy continuation of the interrupted command. This is desirable for human issuing of commands but not for devices. The echo can be turned off using the Set command.
+Range: 0 to 1, where 0 is off and 1 is on.
+Default: 1</p>
+<h2 id='tls'>tls</h2>
+<p>Connections which support TLS will be enabled with TLS. UDP connections will enable DTLS.
+Range: 0 to 1, where 0 is off and 1 is on.
+Default: 1</p>
+<h2 id='proto'>proto</h2>
+<p>Allows for choosing the protocol.
+Choices: coap, mqtt, http, lora
+Default: coap for SigCell and lora for SigLR
+enabled
+Enables protocol connectivity
+Range: 0 to 1, where 0 is off and 1 is on
+Default: 0</p>
+<h2 id='cacert'>cacert</h2>
+<p>Allows setting of the CA certificate
+Range: String in double quotes. CR/LF are allowed inside the string
+Default: Empty
+Example:
++set,cacert:&quot;-----BEGIN CERTIFICATE-----
+MIIDdzCCAl+gAw…
+...xMKQ3liZX
+-----END CERTIFICATE-----&quot;</p>
+<h2 id='privcert'>privcert</h2>
+<p>Allows setting of the private certificate
+Range: String in double quotes. CR/LF are allowed inside the string
+Default: Empty</p>
+<h2 id='privkey'>privkey</h2>
+<p>Allows setting of the private key
+Range: String in double quotes. CR/LF are allowed inside the string
+Default: Empty</p>
+<h2 id='sectag'>sectag</h2>
+<p>Allows setting of the security tag. The security tag is used by protocols in selecting which certificates to use. sectag = 0 means no certificates used.
+Range: 0 to 255
+Default: 0</p>
+<h1 id='status'>Status</h1><h2 id='firmware'>firmware</h2>
+<p>This key is used to retrieve the firmware version.
+range text</p>
+<h2 id='battery'>battery</h2>
+<p>This key is used to retrieve the battery voltage level.
+range: 0 to 55
+<aside class="success">
+NOTE: returned value is 10 times the battery voltage.
+</aside></p>
+<h2 id='connected'>connected</h2>
+<p>This key is used to indicate the connected state of the device on the network. It is not an indication of a connection to the server. SigCell will connect to the tower and enter PSM or eDRX mode. SigFi will connect to the wireless AP. SigLR will join the LoRaWAN network, and SigBLE will pair to another BLE device. This key indicates the state of these connections.
+range: 0 to 1
+0 indicates no connection, waiting to retry
+1  indicates a successful connection</p>
+<h2 id='queue_mark-tbi'>queue_mark (TBI)</h2>
+<p>Returns the highest mark which has been queued.</p>
+<h2 id='push_mark-tbi'>push_mark (TBI)</h2>
+<p>Returns the highest mark which has been successfully pushed to the server.</p>
+<h1 id='control'>Control</h1><h2 id='save'>save</h2>
+<p>This key is used to save certain variables to flash memory
+range: 1
+1 is used to save data to flash. A negative response, indicates failure.</p>
+<h2 id='led'>led</h2><h3 id='set-led'>Set LED</h3><div class="highlight"><pre class="highlight plaintext"><code>+set,led:&lt;example goes here&gt;
 </code></pre></div>
 <blockquote>
 <p>The above command sets the LED to <what it does> and returns</p>
@@ -391,7 +896,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <div class="highlight"><pre class="highlight plaintext"><code>+rsp,???
 </code></pre></div>
 <p>This endpoint command sets the LED colors and mode.</p>
-<h3 id='uart-command'>UART command</h3>
+<h3 id='command-5'>command</h3>
 <p><code>+set,led:&lt;parameters&gt;</code></p>
 <h3 id='set-parameters'>+set Parameters</h3>
 <table><thead>
@@ -413,88 +918,701 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <aside class="success">
 NOTE — LUT come into play???
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='leds'>leds</h2>
+<p>This key is used to control power to LEDS
+range: 0 : 1
+1: Status LED is enabled and controlled by internal logic.
+0: Status LED is disabled for ultra low power mode.</p>
+<h2 id='led_control-tbi'>led_control (TBI)</h2>
+<p>This key is used to override the internal LED logic.
+range: 0 to 1
+0 indicates device will auto control the LED based on predefined logic.
+1 indicates LED will be controlled by led_set key.</p>
+<h2 id='led_red-tbi'>led_red (TBI)</h2>
+<p>This key is used to set the LED level.
+range: 0:255
+The LEDs red will be set to this brightness level.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<aside class="success">
+NOTE: this message will cause led_control to be auto-set to 1
+</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<aside class="success">
+NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
+</aside>
+<h2 id='led_green-tbi'>led_green (TBI)</h2>
+<p>This key is used to set the LED level.
+range: 0:255
+The LEDs green will be set to this brightness level.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<aside class="success">
+NOTE: this message will cause led_control to be auto-set to 1
+</aside>
+
+<aside class="success">
+NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
+</aside>
+<h2 id='led_blue-tbi'>led_blue (TBI)</h2>
+<p>This key is used to set the LED level.
+range: 0:255
+The LEDs blue will be set to this brightness level.</p>
+
+<aside class="success">
+NOTE: this message will cause led_control to be auto-set to 1
+</aside>
+
+<aside class="success">
+NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
+</aside>
+<h2 id='led_blink_count-tbi'>led_blink_count (TBI)</h2>
+<p>This key is used to set the blink count.
+range: 1:10
+led_blink_ontime (TBI)
+This key is used to set the blink on time in milliseconds.
+range: 1:1000</p>
+<h2 id='led_blink_offtime-tbi'>led_blink_offtime (TBI)</h2>
+<p>This key is used to set the blink off time in milliseconds.
+range: 1:1000</p>
+<h2 id='led_blink_start-tbi'>led_blink_start (TBI)</h2>
+<p>This key is used to initiate a blink sequence. The current color will be held on by led_blink_ontime and then the sequence will blink on and off led_blink_count times.
+range: 1
+When the blink sequence completes, the LED will be turned off.
+Example:
++set,led_blink_ontime:500,led_blink_offtime:500,led_blink_count:3,led_red:200,led_blink_start:1</p>
+<h2 id='push_interval-tbi'>push_interval (TBI)</h2>
+<p>The nominal reporting interval in seconds. In order to preserve battery life and reduce network overhead, the device connects and pushes to the server in a buffered manner.  The device will not connect or push to the server  at a rate faster than this value. If no reports are queued to send, then the actual interval of the pushes will be extended. If this value is set to 0, then reports are pushed as they are received.
+Range: 0 to 3600
+Default: 120
+In order to enforce a push interval larger than 3600 seconds, the controlling device should simply send push commands at the desired slow rate.</p>
+<h1 id='notifications'>Notifications</h1><h2 id='startup-notification'>Startup Notification</h2>
+<p>+notify,event:init,result:0</p>
+<h2 id='server-connection'>Server Connection</h2>
+<p>+notify,event:mqtt,connected:1</p>
+<h2 id='push-to-server'>Push to Server</h2>
+<p>+notify,<proto>:push,mark:1</p>
+<h2 id='server-response-mqtt'>Server Response (MQTT)</h2>
+<p>+notify,mqtt:pub,id:4667</p>
+<h2 id='downlink-message-lora'>Downlink Message (LoRa)</h2>
+<p>+notify,lora:rx:base64:<base64 encoded payload></p>
+<h1 id='fota-dfu'>FOTA / DFU</h1><h2 id='fotahost'>fotahost</h2>
+<p>Host to connect to for socket connection. This can be a name or IP address.
+Range: String
+Default: fota.signetik.com</p>
+<h2 id='fotahostname'>fotahostname</h2>
+<p>Host name used in request. This must be the DNS name of the server
+Range: String
+Default: fota.signetik.com</p>
+<h2 id='fotafile'>fotafile</h2>
+<p>Filename and path of the file to download.
+Range: String
+Default: sigcell/v1.0.3.bin</p>
+<h2 id='fotasubfile'>fotasubfile</h2>
+<p>Filename and path of the file to download for side application.
+Range: String
+Default: sigcell/v1.0.3.bin</p>
+<h2 id='fotastart'>fotastart</h2><div class="highlight"><pre class="highlight plaintext"><code>+notify,fota:95
++notify,fota:complete
+</code></pre></div>
+<p>Initiate FOTA transfer
+Range: 1
+Default: 0</p>
+
+<aside class="success">
+NOTE: once this entry is written to, FOTA begins. The file is downloaded via HTTP and if a valid firmware (BIN) is downloaded, then it will be applied. When it is complete, the device can be restarted and the new firmware will become active.
+</aside>
+
+<aside class="success">
+NOTE: +notify,fota:<percent> will show for each chunk to indicate percent complete
+</aside>
+<h2 id='fotasubstart'>fotasubstart</h2><div class="highlight"><pre class="highlight plaintext"><code>+notify,fota:95
++notify,fotasub:data,data:RVJJRlkgRkFJTC4gZXhwZWN0ZWQ6IDB4JTA4eCwgYWN0dWFsOiAweCUwOHgAAAAAZm90YV9mbGFzaF9ibG9jawAAAAAxMjMAAAAAAAAAAAAAwAAAvFADAAEAAAAAwAAAAAIAALxQAwACAAAAAMAAAACgBwC8UAMAAwAAAADCAAAAngcAvFADAAQAAAAAwgAAAMAAALxQAwAFAAAAAIIBAADeBgC8UAMABgAAAABgCAAAoAcAvFADAAcAAABOUkZfRkxBU0hfRFJWX05BTUUAAHBvd2VyAAAASQIDAHkAAwCZAQMAAAAAAF0AAwAAAAAAAAAAAAABAAQUUQMAAAAAAAAAAAAEAQgMHFEDAENMT0NLAAAAaGZjbGsAAABsZmNsawAAAGNsb2NrX2NvbnRyb2wAAABzeXNfY2xvY2sAAABUZXJtaW5hbAAAAABSVFQAU0VHR0VSAAByMC9hMTogIDB4JTA4eCAgcjEvYTI6ICAweCUwOHggIHIyL2EzOiAgMHglMDh4AAByMy9hNDogIDB4JTA4eCByMTIvaXA6ICAweCUwOHggcjE0L2xyOiAgMHglMDh4AAAgeHBzcjogIDB4JTA4eAAAc1slMmRdOiAgMHglMDh4ICBzWyUyZF06ICAweCUwOHggIHNbJTJkXTogIDB4JTA4eCAgc1slMmRdOiAgMHglMDh4AABmcHNjcjogIDB4==
++notify,fota:complete
+</code></pre></div>
+<p>Initiate FOTASUB transfer
+Range: 1
+Default: 0</p>
+
+<aside class="success">
+NOTE: once this entry is written to, FOTASUB begins. The file is downloaded via HTTP and presented to the serial interface as notification of base64 data.
+</aside>
+
+<aside class="success">
+NOTE: +notify,fota:<percent> will show for each chunk to indicate percent complete
+</aside>
+
+<aside class="success">
+NOTE: Chunks are presently 4096 bytes, before base64 encoding, but are subject to change in the future. It is best that the user parses data in base64 fragments. I.E integer multiples of 4 bytes. In the future, if the chunk size changes, it will default to 4096 but allow the user to change if needed.
+</aside>
+<h2 id='fotastate'>fotastate</h2>
+<p>FOTA state
+Range: 0-2, where 0 is IDLE, 1 is starting, and 2 is in progress
+Default: 0</p>
+
+<aside class="success">
+NOTE: You should not start any FOTA or FOTASUB while fotastate or fotasubstate are non-zero
+</aside>
+<h2 id='fotasubstate'>fotasubstate</h2>
+<p>FOTA sub state
+Range: 0-2, where 0 is IDLE, 1 is starting, and 2 is in progress
+Default: 0</p>
+
+<aside class="success">
+NOTE: You should not start any FOTA or FOTASUB while fotastate or fotasubstate are non-zero
+</aside>
+<h2 id='dlcount'>dlcount</h2>
+<p>FOTASUB download count. This variable is read only and shows the current chunk that is sent
+Range: 0-65535
+Default: 0</p>
+<h2 id='dlchunks'>dlchunks</h2>
+<p>FOTASUB download chunks. This allows the user to choose the number of chunks to download.
+Range: 0-65535, where 0 is ALL and non-zero is partial downloads
+Default: 0</p>
+
+<aside class="success">
+NOTE: Chunks are presently 4096 bytes but subject to change in the future.
+</aside>
+<h2 id='dlretcount'>dlretcount</h2>
+<p>FOTA current retry count for FOTA and FOTASUB. Read only. This indicates which retry is being performed
+Range: 0-65535
+Default: 5</p>
+<h2 id='dlretries'>dlretries</h2>
+<p>FOTA total retries for FOTA and FOTASUB
+Range: 0-65535
+Default: 5</p>
+<h2 id='dloffset'>dloffset</h2>
+<blockquote>
+<p>FOTA</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,fotahost:fota.signetik.com
++set,fotahostname:fota.signetik.com
++set,fotafile:sigcell/v1.0.4.bin
++set,fotastart:1
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>FOTASUB</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,fotahost:fota.signetik.com
++set,fotahostname:fota.signetik.com
++set,fotasubfile:sigcell/v1.0.4.bin
++set,fotasubstart:1
+</code></pre></div>
+<blockquote>
+<p>FOTASUB partial</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,fotahost:fota.signetik.com
++set,fotahostname:fota.signetik.com
++set,dlchunks:1
++set,dloffset:4096
++set,fotasubfile:sigcell/v1.0.4.bin
++set,fotasubstart:1
+</code></pre></div>
+<p>FOTA byte offset for start of FOTASUB download
+Range: 0-(232-1)
+Default: 0</p>
+<h1 id='connections'>Connections</h1>
+<p>In some cases, it is desirable to control the socket connections on SigCell and SigFi. These commands allow the opening, reading, writing, and closing of sockets.</p>
+<h2 id='udp'>UDP</h2><h3 id='udp_open'>udp_open</h3>
+<p>Command
++udp_open,host:<ip>,port:<port>\r\n
+Response
++rsp,result:<result>,socket:<socket>\r\n
+<result> will be zero on success and non-zero on error.
+<socket> integer: [1, 255] will be returned upon success</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<aside class="success">
+NOTE: This value of <socket> should be used in subsequent udp_send, udp_close commands
+</aside>
+<h3 id='udp_send'>udp_send</h3>
+<p>Command
++udp_send,socket:<socket>,data:”<data>”\r\n
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='udp_receive'>udp_receive</h3>
+<p>UDP receive packets are displayed as they arrive, as follows.
+Response
++notify,event:udp_receive,data:<data>\r\n</p>
+<h3 id='udp_close'>udp_close</h3>
+<p>Command
++udp_close,socket:<socket>
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h2 id='tcp'>TCP</h2><h3 id='tcp_open'>tcp_open</h3>
+<p>Command
++tcp_open,host:<ip>,port:<port>\r\n
+Response
++rsp,result:<result>,socket:<socket>\r\n
+<result> will be zero on success and non-zero on error.
+<socket> integer: [1, 255] will be returned upon success</p>
+
+<aside class="success">
+NOTE: This value of <socket> should be used in subsequent tcp_send, tcp_close commands
+</aside>
+<h3 id='tcp_send'>tcp_send</h3>
+<p>Command
++tcp_send,socket:<socket>,data:”<data>”\r\n
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='tcp_receive'>tcp_receive</h3>
+<p>TCP received packets are displayed as they arrive, as follows.
+Response
++notify,event:tcp_receive,data:<data>\r\n</p>
+<h3 id='tcp_close'>tcp_close</h3>
+<p>Command
++tcp_close,socket:<socket>
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h2 id='http'>HTTP</h2><div class="highlight"><pre class="highlight plaintext"><code>+set,uri:devices/1234AAAB/
++set,keepalive:1
+</code></pre></div>
+<p>HTTP can be used after opening a socket with either tcp_open or udp_open, and setting up the following parameters:
++set,server_address:www.signetik.iot</p>
+
+<aside class="success">
+NOTE: The server address should match the host address used to open a connection.
+</aside>
+<h3 id='http_get'>http_get</h3>
+<p>Command
++http_get,socket:<socket>[,opt_headers:”<optional headers>\r\n”]\r\n
+Response
++rsp,result:<result>\r\n
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='http_put'>http_put</h3>
+<p>Command
++http_put,socket:<socket>[,opt_headers:”<optional headers>\r\n”],data:”<data>”\r\n
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='http_post'>http_post</h3>
+<p>Command
++http_post,socket:<socket>[,opt_headers:”<optional headers>\r\n”],data:”<data>”\r\n
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='http_delete'>http_delete</h3>
+<p>Command
++http_delete,socket:<socket>[,opt_headers:”<optional headers>\r\n”]\r\n
+Response
++rsp,result:<result>\r\n
+where <result> is zero on success and non-zero on failure.</p>
+<h3 id='http_patch'>http_patch</h3>
+<p>Command
++http_patch,socket:<socket>[,opt_headers:”<optional headers>\r\n”],data:”<data>”\r\n
+Response
++rsp,result:<result>
+where <result> is zero on success and non-zero on failure.</p>
+<h2 id='ssl-tls'>SSL/TLS</h2>
+<p>TLS is enabled by setting the ‘sectag’ variable &quot;+set,sectag:1&quot;. If the value of sectag is greater than 0, TLS will be enabled for any TCP connection. Once enabled, socket connections will use ‘sectag’ to load the certificate. Running &quot;+set,sectag:0&quot; will disable TLS for TCP connections.
+In order to set the certificates to use TLS, the modem must be in a non-connected state. Setting the ‘connect’ variable to 0 will accomplish this, “+set,connect:0”. Then the ‘privkey’, ‘cacert’, and/or ‘privcert’ variables can be set. After setting ‘cacert’, running “+get,cacert” should report the same certificate that was set. In rare situations, the certificate will be truncated due to the way low level functionality is handled. The ‘privkey’ and ‘privcert’ variables cannot be read for security.</p>
+<h2 id='mqtt'>MQTT</h2>
+<blockquote>
+<p>Following are example settings for use on Azure IoT MQTT.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,proto:mqtt
++set,devid:1234AAAB
++set,server_address:signetik.azure-devices.net
++set,server_port:8883
++set,user:signetik.azure-devices.net/1234AAAB
++set,pwSharedAccessSignature sr=signetik.azure-devices.net%2Fdevices%2F1234AAAB&amp;sig=6tN5M…….....9Kg%3D&amp;se=1598116935
++set,subtopic:devices/1234AAAB/messages/devicebound/#
++set,subtopicmethod:$iothub/methods/POST/#
++set,pubtopic:devices/1234AAAB/messages/events/
++set,report1,test
+</code></pre></div>
+<blockquote>
+<p>Once the settings are properly set, the connection should be enabled.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,enabled:1
+</code></pre></div>
+<blockquote>
+<p>Then wait for the connection</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,event:mqtt,connected:1
+</code></pre></div>
+<blockquote>
+<p>Now data can be pushed to a queue named by queue1-queue5.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+push,queue1,temp:1,humid:2
+</code></pre></div>
+<blockquote>
+<p>The response indicates the &quot;mark&quot; of the data.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+rsp,result:0,mark:2
+</code></pre></div>
+<blockquote>
+<p>Once this data is pushed to the queue, it will eventually be removed from the queue and sent to the server, with the following notifications.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,mqtt:push,mark:2,id:4667
+</code></pre></div>
+<blockquote>
+<p>The server responds that the data was received.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,mqtt:pub,id:4667
+</code></pre></div>
+<blockquote>
+<p>All data received from the server will show up as follows.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,mqtt:sub,payload:&lt;data&gt;
+</code></pre></div>
+<p>In some cases, it is desirable to use MQTT directly from the device. These commands are supported on SigCell and SigFi.</p>
+<h3 id='subtopic'>subtopic</h3>
+<p>Allows setting of the subscribe topic
+Range: String
+Default: Empty</p>
+<h3 id='subtopicmethod'>subtopicmethod</h3>
+<p>Allows setting of the subscribe topic for Azure IoT method invocation
+Range: String
+Default: Empty</p>
+<h3 id='pubtopic'>pubtopic</h3>
+<p>Allows setting of the publish topic to be used by push commands
+Range: String
+Default: Empty</p>
+<h3 id='qos'>qos</h3>
+<p>Allows setting of the qos for all messages
+Range: 0-2
+Default: 1</p>
+<h3 id='keepalive'>keepalive</h3>
+<p>Allows setting of the keep alive interval for pinging the broker
+Range: 0-65535
+Default: 60</p>
+<h2 id='http-rest'>HTTP REST</h2>
+<blockquote>
+<p>Following are example settings for use on HTTP REST.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,proto:rest
++set,devid:1234AAAB
++set,host:www.signetik.iot
++set,port:8080
++set,apikey:xyz1234
++set,uri:devices/1234AAAB/
++set,report1,test
+</code></pre></div>
+<blockquote>
+<p>Once the settings are properly set, the connection should be enabled.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,enabled:1
+</code></pre></div>
+<blockquote>
+<p>Although an actual connection is not enabled to a server, the connection must be enabled to be used.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,event:rest,connected:1
+</code></pre></div>
+<blockquote>
+<p>Now data can be pushed to a queue named by report1-report5.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+push,test,temp:1,humid:2
+</code></pre></div>
+<blockquote>
+<p>The response indicates the &quot;mark&quot; of the data.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+rsp,result:0,mark:2
+</code></pre></div>
+<blockquote>
+<p>Once this data is pushed to the queue, it will eventually be removed from the queue and sent to the server, with the following notifications.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,rest:post,mark:2
+</code></pre></div>
+<blockquote>
+<p>The server responds that the data was received.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,rest:pub,id:4667
+</code></pre></div>
+<blockquote>
+<p>All data received is received from the server as responses to push commands. They will show up as follows.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+notify,rest:rsp,payload:&lt;data&gt;
+</code></pre></div>
+<p>In some cases, it is desirable to use REST directly from the device. These commands are supported on SigCell and SigFi.</p>
+
+<p>The examples to the right show how to use the REST connection directly.</p>
+<h1 id='sigcell'>SigCell</h1><h2 id='nbiot'>nbiot</h2>
+<p>Allows setting of NBIoT as default connection type
+Range: 1
+Default: 0
+If value is 0, then LTE-M is attempted with NB IoT fallback. If value is 1, then NB IoT is attempted with LTE-M fallback. This system must be restarted for this to go into effect.</p>
+<h2 id='mfirmware'>mfirmware</h2>
+<p>This key is used to retrieve the modem firmware version.
+range text</p>
+<h2 id='cell_rsrp'>cell_rsrp</h2>
+<p>Returns the signal strength in dbm.
+Range: -140 to 0
+NOTE: signal strength is typically -140 to -44. A value of 0 indicates unknown signal strength.</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th style="text-align: center">rsrp</th>
+<th>meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td style="text-align: center">&gt; -84</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td style="text-align: center">-85 to -102</td>
+<td>Good</td>
+</tr>
+<tr>
+<td style="text-align: center">-103 to -111</td>
+<td>Fair</td>
+</tr>
+<tr>
+<td style="text-align: center">&lt; -111</td>
+<td>Poor</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='cell_connected-tbi'>cell_connected (TBI)</h2>
+<p>This key is used to indicate the connected state of the device on the network. It is not an indication of a connection to the server. SigCell will connect to the tower and enter PSM or eDRX mode. This key indicates the state of these connections.
+range: 0 to 2</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th style="text-align: center">value</th>
+<th>meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td style="text-align: center">0</td>
+<td>no connection, waiting to retry</td>
+</tr>
+<tr>
+<td style="text-align: center">1</td>
+<td>a connection is being attempted</td>
+</tr>
+<tr>
+<td style="text-align: center">2</td>
+<td>a successful connection</td>
+</tr>
+<tr>
+<td style="text-align: center">3</td>
+<td>a succesful bootstrap connection (connected for FOTA check, but not ready for communication.)</td>
 </tr>
 </tbody></table>
+<h2 id='imei'>imei</h2>
+<p>This key is used to read the IMEI of the device.</p>
+<h2 id='imsi'>imsi</h2>
+<p>This key is used to read the IMSI of the device.</p>
+<h2 id='iccid'>iccid</h2>
+<p>This key is used to read the ICCID of the device.</p>
+<h2 id='time'>time</h2>
+<p>This key is used to read the network time of the device.</p>
+<h1 id='sigfi'>SigFi</h1>
+<p>TBD</p>
+<h1 id='siglrn'>SigLRN</h1><div class="highlight"><pre class="highlight plaintext"><code>+set,enabled:1
++notify,lora:join,status:start
++notify,lora:join,status:complete
++push,base64:"dGVzdA=="
++notify,lora:rx,base64:&lt;base64 encoded payload&gt;
+</code></pre></div><h2 id='auth'>auth</h2>
+<p>&quot;abp&quot; or &quot;otaa&quot;</p>
+<h2 id='appeui-otaa'>appeui (OTAA)</h2>
+<p>Allows setting of the AppEUI</p>
+<h2 id='deveui-otaa-abp'>deveui (OTAA/ABP)</h2>
+<p>Allows setting of the DevEUI</p>
+<h2 id='devaddr-abp'>devaddr (ABP)</h2>
+<p>32-bit device address (ABP only)</p>
+<h2 id='appkey-otaa'>appkey (OTAA)</h2>
+<p>Application key</p>
+<h2 id='nwkskey-abp'>nwkskey (ABP)</h2>
+<p>Network session key</p>
+<h2 id='appskey-abp'>appskey (ABP)</h2>
+<p>Application session key (ABP only)</p>
+
+<p>NOTE: EUI and keys should be set before enabling LoRa protocol.
+NOTE: when &quot;enabling&quot; LoRa proto (see enable and proto variables), the device will automatically join the network for OTAA. Once joined, or if ABP is selected, <code>push</code> can be used to send binary messages.
+NOTE: binary payloads in ascii uart mode can be sent using base64 encoding.
+Downlink messages will show up using +notify messages. Join status will also show up as +notify messages.</p>
+
+<p>Format
+<code>+notify,lora:join,status:&lt;state&gt;</code></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">state</th>
+<th>meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">start</td>
+<td>join process started</td>
+</tr>
+<tr>
+<td style="text-align: center">send</td>
+<td>join send request</td>
+</tr>
+<tr>
+<td style="text-align: center">completed</td>
+<td>join process completed successfully</td>
+</tr>
+<tr>
+<td style="text-align: center">timeout</td>
+<td>failed to join</td>
+</tr>
+<tr>
+<td style="text-align: center">rejected</td>
+<td>rejected by join server</td>
+</tr>
+</tbody></table>
+<h1 id='sigble'>SigBLE</h1>
+<p>TBD</p>
+<h1 id='gps'>GPS</h1>
+<p>Control Commands</p>
+<h2 id='gpsenable'>gpsenable</h2>
+<p>Enable/Disable GPS receiver
+range: 1, 0
+default: 0
+Eg: +set, gpsenable:0 to enable gps</p>
+
+<p>gps
+Get GPS NMEA sentences
+Eg: +get, gps</p>
+<h1 id='future-api'>Future API</h1>
+<p>Pending</p>
+
+<p>(Restore this when code implements this method as described here)
+connected
+This key is used to indicate the connected state of the device on the network. It is not an indication of a connection to the server. SigCell will connect to the tower and enter PSM or eDRX mode. SigFi will connect to the wireless AP. SigLR will join the LoRaWAN network, and SigBLE will pair to another BLE device. This key indicates the state of these connections.
+range: 0 to 2
+0 indicates no connection, waiting to retry
+1 indicates a connection is being attempted
+2 indicates a successful connection</p>
+<h2 id='gps-2'>GPS</h2>
+<p>Keys
+Control Commands
+gpsenabled
+Enable/Disable GPS receiver
+range: 1, 0
+default: 0
+Report Commands
+gpsinterval
+Interval to query GPS data (seconds)
+range: 1, 65535
+default: 1
+gpsreport:
+    - What GPS data gets reported? (pos, date, time, datetime, all, gps)
+        - pos (position)
+        - date
+        - time
+        - datetime (date and time)
+        - all (pos, date, and time)
+        - gps (same as all)
++get,gpsreport
+    - List GPS report data</p>
+<h3 id='data-query-commands'>Data query commands</h3>
+<p>+get,gps
+    - Get all GPS data (position, date, and time)
++get,gpspos
+    - Get current GPS position (Lat, Lon, Alt)
++get,gpsdate
+    - Get current GPS date (YYYY-MM-DD)
++get,gpstime
+    - Get current GPS time (HH:MM:SS)
++get,gpsdatetime
+    - Get current GPS date and time</p>
+<h3 id='advanced-nmea-data-query'>Advanced (NMEA) Data Query</h3>
+<p>+get,gga
+    - Get Global Positioning System Fix Data.
++get,gll
+    - Get Geographic Position, Latitude / Longitude and time.
++get,rmc
+    - Get Recommended minimum specific GPS/Transit data.
++get,vtg
+    - Get Track Made Good and Ground Speed.
++get,zda
+    - Get Date &amp; Time.</p>
+
+<p>Alternate Form:
++get,nmea:[gga/gll/rmc/vtg/zda]</p>
+
+<p>.SigLRN
+auth
+&quot;abp&quot; or &quot;otaa&quot;
+Selects ABP (Authorization By Personalization) or OTAA (Over The Air Authorization)
+default: “ABP”
++set,auth:OTAA
+class
+“A&quot; or &quot;C&quot;
+Selects Class A or Class C LoRaWAN operation
+default: “C”
++set,class:a
+adrenabled
+Boolean for enabling LoRaWAN Adaptive Data Rate.  Enabled = 1, disabled = 0.
+range: 1, 0
+default: 0
++set,adrenabled:1
+datarate
+Integer value for fixed LoRaWAN data rates.  Valid only if Adaptive Data Rate is disabled.
+Range 0 - 15
+default: 1
++set,datarate:2
+chanmask
+Ten byte array specifying the LoRa channel mask assignment
++set,chanmask:0x00112233445566778899
+deveui (OTAA/ABP)
+Allows setting of the DevEUI
++set,deveui:0x0011223344556677</p>
+
+<p>devaddr (ABP)
+32-bit device address (ABP only)
++set,devaddr:0x11223344
+nwkskey (ABP)
+Network session key
++set,nwkskey:0x00112233445566778899AABBCCDDEEFF
+appskey (ABP)
+Application session key (ABP only)
++set,appskey:0x00112233445566778899AABBCCDDEEFF
+appkey (OTAA)
+Application key
++set,appkey:0x00112233445566778899AABBCCDDEEFF
+appeui (OTAA)
+Allows setting of the AppEUI
++set,appeui:0x0011223344556677</p>
+
+<p>NOTE: EUI and keys should be set before enabling LoRa protocol.
+NOTE: when &quot;enabling&quot; LoRa proto (see enable and proto variables), the device will automatically join the network for OTAA. Once joined, or if ABP is selected, <code>push</code> can be used to send binary messages.
+NOTE: binary payloads in ascii uart mode can be sent using base64 encoding.
+Downlink messages will show up using +notify messages. Join status will also show up as +notify messages.
++notify,lora:join,status:start
++notify,lora:join,status:send
++notify,lora:join,status:timeout
++notify,lora:join,status:rejected
++notify,lora:join,status:complete
++notify,lora:rx,base64:<base64 encoded payload>
+LoRa transmit status messages will show us as +notify messages, some including the channel and the data rate of the transmission:
++notify,lora:tx,status:success,chan:0,dr:1
++notify,lora:tx,status:fail,chan:1,dr:1
++notify,lora:tx,status:send
++notify,lora:tx,status:complete
++notify,lora:tx,status:error
+Example
++set,enabled:1
++push,base64:&quot;dGVzdA==&quot;</p>
+
+<p>SigLRN Internally Controlled LED Operations, enabled by default.
+Power up:       Blue
+Lora packet transmit:   Purple for duration of transmission
+Lora packet receive:    Green blink
+Lora transmit error:    Red blink of 1 second duration
+SigLRN User LED Operation
+leds
+This key is used to control power to LEDS.  The individual Red, Green and Blue LED elements can be selected individually or in combination, and the Enable controls the power to the LED assembly.
+The user LED combination will remain active until one of the internally controlled LED operations occurs.
+range: 0 : 15   [xxxx3210]
+Enable: Bit position 3:
+1: Status LED is enabled.
+0: Status LED is disabled for ultra low power mode.
+RED: Bit position 2:
+1: Red LED is enabled.
+0: Red LED is disabled.
+GREEN: Bit position 1:
+1: Green LED is enabled.
+0: Green LED is disabled.
+BLUE: Bit position 0:
+1: Blue LED is enabled.
+0: Blue LED is disabled.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -556,12 +1674,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
