@@ -6,7 +6,7 @@ toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - future
+  - led
 
 search: true
 
@@ -303,102 +303,6 @@ Returns the highest mark which has been successfully pushed to the server.
 This key is used to save certain variables to flash memory
 range: 1
 1 is used to save data to flash. A negative response, indicates failure.
-
-## led
-
-### Set LED
-
-```
-+set,led:<example goes here>
-```
-
-> The above command sets the LED to <what it does> and returns
-
-```ascii
-+rsp,???
-```
-
-This endpoint command sets the LED colors and mode.
-
-### command
-
-`+set,led:<parameters>`
-
-### +set Parameters
-
-Parameter | Description
---------- | -----------
-active_lut | Sets the ...
-blink | Sets ...
-
-<aside class="success">
-NOTE — LUT come into play???
-</aside>
-
-## leds
-This key is used to control power to LEDS
-range: 0 : 1
-1: Status LED is enabled and controlled by internal logic.
-0: Status LED is disabled for ultra low power mode.
-
-## led_control (TBI)
-This key is used to override the internal LED logic.
-range: 0 to 1
-0 indicates device will auto control the LED based on predefined logic.
-1 indicates LED will be controlled by led_set key.
-
-## led_red (TBI)
-This key is used to set the LED level.
-range: 0:255
-The LEDs red will be set to this brightness level.
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-
-## led_green (TBI)
-This key is used to set the LED level.
-range: 0:255
-The LEDs green will be set to this brightness level.
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-
-## led_blue (TBI)
-This key is used to set the LED level.
-range: 0:255
-The LEDs blue will be set to this brightness level.
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-
-## led_blink_count (TBI)
-This key is used to set the blink count.
-range: 1:10
-led_blink_ontime (TBI)
-This key is used to set the blink on time in milliseconds.
-range: 1:1000
-
-## led_blink_offtime (TBI)
-This key is used to set the blink off time in milliseconds.
-range: 1:1000
-## led_blink_start (TBI)
-This key is used to initiate a blink sequence. The current color will be held on by led_blink_ontime and then the sequence will blink on and off led_blink_count times.
-range: 1
-When the blink sequence completes, the LED will be turned off.
-Example:
-+set,led_blink_ontime:500,led_blink_offtime:500,led_blink_count:3,led_red:200,led_blink_start:1
 
 ## push_interval (TBI)
 The nominal reporting interval in seconds. In order to preserve battery life and reduce network overhead, the device connects and pushes to the server in a buffered manner.  The device will not connect or push to the server  at a rate faster than this value. If no reports are queued to send, then the actual interval of the pushes will be extended. If this value is set to 0, then reports are pushed as they are received.
