@@ -425,33 +425,6 @@
                     <a href="#save" class="toc-h2 toc-link" data-title="save">save</a>
                   </li>
                   <li>
-                    <a href="#led" class="toc-h2 toc-link" data-title="led">led</a>
-                  </li>
-                  <li>
-                    <a href="#leds" class="toc-h2 toc-link" data-title="leds">leds</a>
-                  </li>
-                  <li>
-                    <a href="#led_control-tbi" class="toc-h2 toc-link" data-title="led_control (TBI)">led_control (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_red-tbi" class="toc-h2 toc-link" data-title="led_red (TBI)">led_red (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_green-tbi" class="toc-h2 toc-link" data-title="led_green (TBI)">led_green (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_blue-tbi" class="toc-h2 toc-link" data-title="led_blue (TBI)">led_blue (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_blink_count-tbi" class="toc-h2 toc-link" data-title="led_blink_count (TBI)">led_blink_count (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_blink_offtime-tbi" class="toc-h2 toc-link" data-title="led_blink_offtime (TBI)">led_blink_offtime (TBI)</a>
-                  </li>
-                  <li>
-                    <a href="#led_blink_start-tbi" class="toc-h2 toc-link" data-title="led_blink_start (TBI)">led_blink_start (TBI)</a>
-                  </li>
-                  <li>
                     <a href="#push_interval-tbi" class="toc-h2 toc-link" data-title="push_interval (TBI)">push_interval (TBI)</a>
                   </li>
               </ul>
@@ -613,18 +586,55 @@
               </ul>
           </li>
           <li>
-            <a href="#future-api" class="toc-h1 toc-link" data-title="Future API">Future API</a>
+            <a href="#led" class="toc-h1 toc-link" data-title="LED">LED</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#gps-2" class="toc-h2 toc-link" data-title="GPS">GPS</a>
+                    <a href="#led-control-api" class="toc-h2 toc-link" data-title="LED Control API">LED Control API</a>
+                  </li>
+                  <li>
+                    <a href="#leds" class="toc-h2 toc-link" data-title="leds">leds</a>
+                  </li>
+                  <li>
+                    <a href="#led_red" class="toc-h2 toc-link" data-title="led_red">led_red</a>
+                  </li>
+                  <li>
+                    <a href="#led_green" class="toc-h2 toc-link" data-title="led_green">led_green</a>
+                  </li>
+                  <li>
+                    <a href="#led_blue" class="toc-h2 toc-link" data-title="led_blue">led_blue</a>
+                  </li>
+                  <li>
+                    <a href="#led_color" class="toc-h2 toc-link" data-title="led_color">led_color</a>
+                  </li>
+                  <li>
+                    <a href="#led_intensity" class="toc-h2 toc-link" data-title="led_intensity">led_intensity</a>
+                  </li>
+                  <li>
+                    <a href="#led_blinks" class="toc-h2 toc-link" data-title="led_blinks">led_blinks</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_ontime" class="toc-h2 toc-link" data-title="led_blink_ontime">led_blink_ontime</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_offtime" class="toc-h2 toc-link" data-title="led_blink_offtime">led_blink_offtime</a>
+                  </li>
+                  <li>
+                    <a href="#led_blink_start" class="toc-h2 toc-link" data-title="led_blink_start">led_blink_start</a>
+                  </li>
+                  <li>
+                    <a href="#ledctl" class="toc-h2 toc-link" data-title="ledctl">ledctl</a>
+                  </li>
+                  <li>
+                    <a href="#ledmsg" class="toc-h2 toc-link" data-title="ledmsg">ledmsg</a>
+                  </li>
+                  <li>
+                    <a href="#led_userlut1-led_userlut2" class="toc-h2 toc-link" data-title="led_userlut1, (led_userlut2)">led_userlut1, (led_userlut2)</a>
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </ul>
         <ul class="toc-footer">
+            <li>Signetik IoT API 1.1.0</li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -888,97 +898,6 @@ range: 0 to 1
 <p>This key is used to save certain variables to flash memory
 range: 1
 1 is used to save data to flash. A negative response, indicates failure.</p>
-<h2 id='led'>led</h2><h3 id='set-led'>Set LED</h3><div class="highlight"><pre class="highlight plaintext"><code>+set,led:&lt;example goes here&gt;
-</code></pre></div>
-<blockquote>
-<p>The above command sets the LED to <what it does> and returns</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>+rsp,???
-</code></pre></div>
-<p>This endpoint command sets the LED colors and mode.</p>
-<h3 id='command-5'>command</h3>
-<p><code>+set,led:&lt;parameters&gt;</code></p>
-<h3 id='set-parameters'>+set Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>active_lut</td>
-<td>Sets the ...</td>
-</tr>
-<tr>
-<td>blink</td>
-<td>Sets ...</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-NOTE — LUT come into play???
-</aside>
-<h2 id='leds'>leds</h2>
-<p>This key is used to control power to LEDS
-range: 0 : 1
-1: Status LED is enabled and controlled by internal logic.
-0: Status LED is disabled for ultra low power mode.</p>
-<h2 id='led_control-tbi'>led_control (TBI)</h2>
-<p>This key is used to override the internal LED logic.
-range: 0 to 1
-0 indicates device will auto control the LED based on predefined logic.
-1 indicates LED will be controlled by led_set key.</p>
-<h2 id='led_red-tbi'>led_red (TBI)</h2>
-<p>This key is used to set the LED level.
-range: 0:255
-The LEDs red will be set to this brightness level.</p>
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-<h2 id='led_green-tbi'>led_green (TBI)</h2>
-<p>This key is used to set the LED level.
-range: 0:255
-The LEDs green will be set to this brightness level.</p>
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-<h2 id='led_blue-tbi'>led_blue (TBI)</h2>
-<p>This key is used to set the LED level.
-range: 0:255
-The LEDs blue will be set to this brightness level.</p>
-
-<aside class="success">
-NOTE: this message will cause led_control to be auto-set to 1
-</aside>
-
-<aside class="success">
-NOTE: a value of 0 will turn off this color. Setting all colors to 0 will disable the LED driver.
-</aside>
-<h2 id='led_blink_count-tbi'>led_blink_count (TBI)</h2>
-<p>This key is used to set the blink count.
-range: 1:10
-led_blink_ontime (TBI)
-This key is used to set the blink on time in milliseconds.
-range: 1:1000</p>
-<h2 id='led_blink_offtime-tbi'>led_blink_offtime (TBI)</h2>
-<p>This key is used to set the blink off time in milliseconds.
-range: 1:1000</p>
-<h2 id='led_blink_start-tbi'>led_blink_start (TBI)</h2>
-<p>This key is used to initiate a blink sequence. The current color will be held on by led_blink_ontime and then the sequence will blink on and off led_blink_count times.
-range: 1
-When the blink sequence completes, the LED will be turned off.
-Example:
-+set,led_blink_ontime:500,led_blink_offtime:500,led_blink_count:3,led_red:200,led_blink_start:1</p>
 <h2 id='push_interval-tbi'>push_interval (TBI)</h2>
 <p>The nominal reporting interval in seconds. In order to preserve battery life and reduce network overhead, the device connects and pushes to the server in a buffered manner.  The device will not connect or push to the server  at a rate faster than this value. If no reports are queued to send, then the actual interval of the pushes will be extended. If this value is set to 0, then reports are pushed as they are received.
 Range: 0 to 3600
@@ -1469,206 +1388,328 @@ Eg: +set, gpsenable:0 to enable gps</p>
 <p>gps
 Get GPS NMEA sentences
 Eg: +get, gps</p>
-<h1 id='future-api'>Future API</h1>
-<p>Pending</p>
+<h1 id='led'>LED</h1>
+<p>The LED API includes commands to set operating parameters individually or with a single command that can take effect immediately or be queued by the LED task to process in order of reception. It also includes the ability to configure internal LED lookup tables for specific color/blink/intensity combinations which may be referenced by index. </p>
+<h3 id='led-control-api'>LED Control API</h3>
+<ul>
+<li>leds</li>
+<li>led_red</li>
+<li>led_green</li>
+<li>led_blue</li>
+<li>led_intensity</li>
+<li>led_blink_count</li>
+<li>led_blink_ontime</li>
+<li>led_blink_offtime</li>
+<li>led_blink_start</li>
+<li>ledctl</li>
+<li>ledmsg</li>
+<li>led_userlut</li>
+<li>active_ledlut</li>
+</ul>
+<h2 id='leds'>leds</h2>
+<p>This key controls the led enable. Range 0:1</p>
 
-<p>(Restore this when code implements this method as described here)
-connected
-This key is used to indicate the connected state of the device on the network. It is not an indication of a connection to the server. SigCell will connect to the tower and enter PSM or eDRX mode. SigFi will connect to the wireless AP. SigLR will join the LoRaWAN network, and SigBLE will pair to another BLE device. This key indicates the state of these connections.
-range: 0 to 2
-0 indicates no connection, waiting to retry
-1 indicates a connection is being attempted
-2 indicates a successful connection</p>
-<h2 id='gps-2'>GPS</h2>
-<p>Keys
-Control Commands
-gpsenabled
-Enable/Disable GPS receiver
-range: 1, 0
-default: 0
-Report Commands
-gpsinterval
-Interval to query GPS data (seconds)
-range: 1, 65535
-default: 1
-gpsreport:
-    - What GPS data gets reported? (pos, date, time, datetime, all, gps)
-        - pos (position)
-        - date
-        - time
-        - datetime (date and time)
-        - all (pos, date, and time)
-        - gps (same as all)
-+get,gpsreport
-    - List GPS report data</p>
-<h3 id='data-query-commands'>Data query commands</h3>
-<p>+get,gps
-    - Get all GPS data (position, date, and time)
-+get,gpspos
-    - Get current GPS position (Lat, Lon, Alt)
-+get,gpsdate
-    - Get current GPS date (YYYY-MM-DD)
-+get,gpstime
-    - Get current GPS time (HH:MM:SS)
-+get,gpsdatetime
-    - Get current GPS date and time</p>
-<h3 id='advanced-nmea-data-query'>Advanced (NMEA) Data Query</h3>
-<p>+get,gga
-    - Get Global Positioning System Fix Data.
-+get,gll
-    - Get Geographic Position, Latitude / Longitude and time.
-+get,rmc
-    - Get Recommended minimum specific GPS/Transit data.
-+get,vtg
-    - Get Track Made Good and Ground Speed.
-+get,zda
-    - Get Date &amp; Time.</p>
+<p>NOTE: A value of 0 will disable the LED circuitry and turn off the LED.</p>
+<h2 id='led_red'>led_red</h2>
+<p>This key is used to set the LED level. Range: 0-255.  The LED&#39;s red will be set to this brightness level.</p>
 
-<p>Alternate Form:
-+get,nmea:[gga/gll/rmc/vtg/zda]</p>
-
-<p>.SigLRN
-auth
-&quot;abp&quot; or &quot;otaa&quot;
-Selects ABP (Authorization By Personalization) or OTAA (Over The Air Authorization)
-default: “ABP”
-+set,auth:OTAA
-class
-“A&quot; or &quot;C&quot;
-Selects Class A or Class C LoRaWAN operation
-default: “C”
-+set,class:a
-adrenabled
-Boolean for enabling LoRaWAN Adaptive Data Rate.  Enabled = 1, disabled = 0.
-range: 1, 0
-default: 0
-+set,adrenabled:1
-datarate
-Integer value for fixed LoRaWAN data rates.  Valid only if Adaptive Data Rate is disabled.
-Range 0 - 15
-default: 1
-+set,datarate:2
-chanmask
-Ten byte array specifying the LoRa channel mask assignment
-+set,chanmask:0x00112233445566778899
-deveui (OTAA/ABP)
-Allows setting of the DevEUI
-+set,deveui:0x0011223344556677</p>
-
-<p>devaddr (ABP)
-32-bit device address (ABP only)
-+set,devaddr:0x11223344
-nwkskey (ABP)
-Network session key
-+set,nwkskey:0x00112233445566778899AABBCCDDEEFF
-appskey (ABP)
-Application session key (ABP only)
-+set,appskey:0x00112233445566778899AABBCCDDEEFF
-appkey (OTAA)
-Application key
-+set,appkey:0x00112233445566778899AABBCCDDEEFF
-appeui (OTAA)
-Allows setting of the AppEUI
-+set,appeui:0x0011223344556677</p>
-
-<p>NOTE: EUI and keys should be set before enabling LoRa protocol.
-NOTE: when &quot;enabling&quot; LoRa proto (see enable and proto variables), the device will automatically join the network for OTAA. Once joined, or if ABP is selected, <code>push</code> can be used to send binary messages.
-NOTE: binary payloads in ascii uart mode can be sent using base64 encoding.
-Downlink messages will show up using +notify messages. Join status will also show up as +notify messages.
-+notify,lora:join,status:start
-+notify,lora:join,status:send
-+notify,lora:join,status:timeout
-+notify,lora:join,status:rejected
-+notify,lora:join,status:complete
-+notify,lora:rx,base64:<base64 encoded payload>
-LoRa transmit status messages will show us as +notify messages, some including the channel and the data rate of the transmission:
-+notify,lora:tx,status:success,chan:0,dr:1
-+notify,lora:tx,status:fail,chan:1,dr:1
-+notify,lora:tx,status:send
-+notify,lora:tx,status:complete
-+notify,lora:tx,status:error
-Example
-+set,enabled:1
-+push,base64:&quot;dGVzdA==&quot;</p>
-
-<p>SigLRN Internally Controlled LED Operations, enabled by default.
-Power up:       Blue
-Lora packet transmit:   Purple for duration of transmission
-Lora packet receive:    Green blink
-Lora transmit error:    Red blink of 1 second duration
-SigLRN User LED Operation
-leds
-This key is used to control power to LEDS.  The individual Red, Green and Blue LED elements can be selected individually or in combination, and the Enable controls the power to the LED assembly.
-The user LED combination will remain active until one of the internally controlled LED operations occurs.
-range: 0 : 15   [xxxx3210]
-Enable: Bit position 3:
-1: Status LED is enabled.
-0: Status LED is disabled for ultra low power mode.
-RED: Bit position 2:
-1: Red LED is enabled.
-0: Red LED is disabled.
-GREEN: Bit position 1:
-1: Green LED is enabled.
-0: Green LED is disabled.
-BLUE: Bit position 0:
-1: Blue LED is enabled.
-0: Blue LED is disabled.</p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+<aside class="success">
+NOTE: This message will cause ledctl to be auto-set to 1, which will enable the LED if it was previously off.
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="success">
+NOTE: A value of 0 will turn off this color. Setting all colors to 0 will turn off the LED.
+</aside>
+<h2 id='led_green'>led_green</h2>
+<p>This key is used to set the LED level. Range: 0-255.  The LED&#39;s green will be set to this brightness level.</p>
+
+<aside class="success">
+NOTE: This message will cause ledctl to be auto-set to 1, which will enable the LED if it was previously off.
+</aside>
+
+<aside class="success">
+NOTE: A value of 0 will turn off this color. Setting all colors to 0 will turn off the LED.
+</aside>
+<h2 id='led_blue'>led_blue</h2>
+<p>This key is used to set the LED level. Range: 0-255.  The LED&#39;s blue will be set to this brightness level.</p>
+
+<aside class="success">
+NOTE: This message will cause ledctl to be auto-set to 1, which will enable the LED if it was previously off.
+</aside>
+
+<aside class="success">
+NOTE: A value of 0 will turn off this color. Setting all colors to 0 will turn off the LED.
+</aside>
+<h2 id='led_color'>led_color</h2>
+<p>This key is used to load values from a predefined color table into the led_red, led_green and led_blue component variables. Range text</p>
+
+<ul>
+<li>off</li>
+<li>white</li>
+<li>red</li>
+<li>green</li>
+<li>blue</li>
+<li>orange</li>
+<li>yellow</li>
+<li>purple</li>
+</ul>
+
+<aside class="success">
+NOTE: This message with a value other than 'off', will cause ledctl to be auto-set to 1, which will enable the LED if it was previously off.
+</aside>
+ 
+<h2 id='led_intensity'>led_intensity</h2>
+<p>This key is used to scale the default color intensity in 1% increments. Range 0-100</p>
+<h2 id='led_blinks'>led_blinks</h2>
+<p>This key is used to set the number of on/off blinks for a requested sequence. Range 0-65535</p>
+
+<p>NOTE: Setting blinks to 0 will permit indefinite blinking until turned off through a new command.</p>
+<h2 id='led_blink_ontime'>led_blink_ontime</h2>
+<p>This key is used to set the duration in milliseconds for active portion of the blink cycle. Range 0-65535</p>
+
+<p>NOTE: Blink duration resolution will be set by the target processor and is typically 100ms. Durations of finer resolution will be truncated.</p>
+<h2 id='led_blink_offtime'>led_blink_offtime</h2>
+<p>This key is used to set the duration in milliseconds for off portion of the blink cycle. Range 0-65535</p>
+
+<aside class="success">
+NOTE: Blink duration resolution will be set by the target processor and is typically 100ms. Durations of finer resolution will be truncated.
+</aside>
+<h2 id='led_blink_start'>led_blink_start</h2>
+<p>This key is used to set the operating mode of the blink request. Range 0-2</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Mode</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>0</td>
+<td>Blink disabled</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>1</td>
+<td>Blink for minimum of led_blinks setting and then continuously until stopped by a command.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>2</td>
+<td>Blink for led_blinks setting and then turn off LED.</td>
+</tr>
+</tbody></table>
+<h2 id='ledctl'>ledctl</h2>
+<p>This endpoint command sets the various led control keys in a single command. Most parameters are optional and those not included in the command will allow the controller to use the existing values for those settings.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,ledctl:1,color:custom,r:255,g:0,b:255,i:75,blink:4,on:500,off:1500,start:1
+</code></pre></div>
+<blockquote>
+<p>The above command sets the ledctl to active and configures the LED controller to a custom color mixing red and blue at 75% intensity for a minimum of 4 blinks of 500ms ON and 1500ms OFF and returns</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+rsp,1,color:custom,r:255,g:0,b:255,i:75,blink:4,on:500,off:1500,start:1
+</code></pre></div><h3 id='command'>command</h3>
+<p><code>+set,ledctl:&lt;parameters&gt;</code></p>
+<h3 id='set-parameters'>+set Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ledctl</td>
+<td>Yes</td>
+<td>Enable for led controller</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>color</td>
+<td>No</td>
+<td>Predefined color name or &quot;custom&quot;</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>r</td>
+<td>No</td>
+<td>Red component value for custom color</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>g</td>
+<td>No</td>
+<td>Green component value for custom color</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>b</td>
+<td>No</td>
+<td>Blue component value for custom color</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>i</td>
+<td>No</td>
+<td>Intensity percentage for LED.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>blink</td>
+<td>No</td>
+<td>Number of blinks if blink enabled</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>on</td>
+<td>No</td>
+<td>Duration of ON portion of blink (ms)</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>off</td>
+<td>No</td>
+<td>Duration of OFF portion of blink (ms)</td>
+</tr>
+<tr>
+<td>start</td>
+<td>No</td>
+<td>Blink mode</td>
+</tr>
+<tr>
+<td>lut</td>
+<td>No</td>
+<td>Selects active LED LUT to use when ledctl disabled.</td>
+</tr>
+</tbody></table>
+<h2 id='ledmsg'>ledmsg</h2>
+<p>This is a special version of the ledctl message in that it is received by a task queue and is processed in order of reception.  Unlike ledctl, it does not directly update the various led settings described above but passes values directly to the internal LED controller.</p>
+
+<p>This endpoint command sets the various led control keys in a single command. Most parameters are optional and those not included in the command will allow the controller to use the existing values for those settings.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,ledmsg:1,color:blue,i:100,blink:4,on:500,off:1500,start:2
+</code></pre></div>
+<blockquote>
+<p>The above command sets the ledctl to active and configures the LED controller to a predefined color called blue at 100% intensity for a fixed 4 blinks of 500ms ON and 1500ms OFF and returns</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+rsp,1,color:blue,r:0,g:0,b:0,i:100,blink:4,on:500,off:1500,start:2
+</code></pre></div><h3 id='command-2'>command</h3>
+<p><code>+set,ledmsg:&lt;parameters&gt;</code></p>
+<h3 id='set-parameters-2'>+set Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ledmsg</td>
+<td>Yes</td>
+<td>Enable for led controller</td>
+</tr>
+<tr>
+<td>color</td>
+<td>Yes</td>
+<td>Predefined color name or &quot;custom&quot;</td>
+</tr>
+<tr>
+<td>r</td>
+<td>No</td>
+<td>Red component value for custom color</td>
+</tr>
+<tr>
+<td>g</td>
+<td>No</td>
+<td>Green component value for custom color</td>
+</tr>
+<tr>
+<td>b</td>
+<td>No</td>
+<td>Blue component value for custom color</td>
+</tr>
+<tr>
+<td>i</td>
+<td>No</td>
+<td>Intensity percentage for LED.</td>
+</tr>
+<tr>
+<td>blink</td>
+<td>No</td>
+<td>Number of blinks if blink enabled</td>
+</tr>
+<tr>
+<td>on</td>
+<td>No</td>
+<td>Duration of ON portion of blink (ms)</td>
+</tr>
+<tr>
+<td>off</td>
+<td>No</td>
+<td>Duration of OFF portion of blink (ms)</td>
+</tr>
+<tr>
+<td>start</td>
+<td>No</td>
+<td>Blink mode</td>
+</tr>
+<tr>
+<td>lut</td>
+<td>No</td>
+<td>Selects active LED LUT to use when ledctl disabled.</td>
+</tr>
+</tbody></table>
+<h2 id='led_userlut1-led_userlut2'>led_userlut1, (led_userlut2)</h2>
+<p>This command allows the customization of internal LED LUT entries to use in place of the default factory LED lookup table.</p>
+
+<p>Most parameters are optional and those not included in the command will allow the controller to use the existing values for those settings.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>+set,led_userlut1:3,color:orange,i:100,blink:4,on:1000,off:2000,mode:1
+</code></pre></div>
+<blockquote>
+<p>The above command configures an entry using the predefined color orange of 100% intensity, for a minimum of 4 blinks with an ON duration of 1000ms and OFF duration of 2000ms, storing it at USER_LUT_1[3] and returns</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>+rsp,3,color:orange,i:100,blink:4,on:1000,off:2000,start:1
+</code></pre></div><h3 id='command-3'>command</h3>
+<p><code>+set,led_userlut1:&lt;parameters&gt;</code></p>
+<h3 id='set-parameters-3'>+set Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>led_userlut1</td>
+<td>Yes</td>
+<td>LED LUT identifier and array index</td>
+</tr>
+<tr>
+<td>color</td>
+<td>Yes</td>
+<td>Predefined color name or &quot;custom&quot;</td>
+</tr>
+<tr>
+<td>r</td>
+<td>No</td>
+<td>Red component value for custom color</td>
+</tr>
+<tr>
+<td>g</td>
+<td>No</td>
+<td>Green component value for custom color</td>
+</tr>
+<tr>
+<td>i</td>
+<td>No</td>
+<td>Intensity percentage for LED.</td>
+</tr>
+<tr>
+<td>blink</td>
+<td>No</td>
+<td>Number of blinks if blink enabled</td>
+</tr>
+<tr>
+<td>on</td>
+<td>No</td>
+<td>Duration of ON portion of blink (ms)</td>
+</tr>
+<tr>
+<td>off</td>
+<td>No</td>
+<td>Duration of OFF portion of blink (ms)</td>
+</tr>
+<tr>
+<td>start</td>
+<td>No</td>
+<td>Blink mode</td>
 </tr>
 </tbody></table>
 
