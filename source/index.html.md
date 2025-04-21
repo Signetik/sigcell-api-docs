@@ -822,6 +822,9 @@ rejected | rejected by join server
 # SigBLE
 TBD
 
+# SigGate
+TBD
+
 # GPS
 Control Commands
 ## gpsenable
